@@ -11,7 +11,7 @@ typedef struct Node
     int c;
 }Node;
 Node Tree[110];
-int loc;
+int loc;//记录树中现在已有的节点数
 
 Node * creat()
 {
