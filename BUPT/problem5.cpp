@@ -6,9 +6,9 @@ using namespace std;
 
 void delElem(int* arrPtr,int* delPtr,int seq)
 {
-    for(int i=0;i<100;i++)
+    for(int i=1;i<100;i++)
     {
-        if(arrPtr[i]==seq&&seq!=0)
+        if(arrPtr[i]==seq&&i>0)
             delElem(arrPtr,delPtr,i);
         arrPtr[i]=-1;
         delPtr[i]=1;
@@ -18,8 +18,13 @@ void delElem(int* arrPtr,int* delPtr,int seq)
 int main()
 {
     int t,n;    //t组数，n行数
-    int addArr[100]={-1},killArr[100]={-1};
-    addArr[0]=1;
+    int addArr[100],killArr[100];
+    for(int i=0;i<100;i++)
+    {
+        addArr[i]=-1;
+        killArr[i]=-1;
+    }
+    addArr[0]=0;
     cin>>t;
     while(t--)
     {
@@ -39,10 +44,11 @@ int main()
             }
             else if(inputStr[0]=='Q')
             {
-                if(addArr[inputStr[6]-'0']!=-1)
-                    cout<<"Yes"<<endl;
-                else
+                cout<<inputStr[6]-'0'<<"  "<<addArr[inputStr[6]-'0']<<endl;
+                if(addArr[inputStr[6]-'0']==-1)
                     cout<<"No"<<endl;
+                else
+                    cout<<"Yes"<<endl;
             }
             else if(inputStr[0]=='K')       //这里杀死进程时候要同时杀死子进程
             {
