@@ -19,7 +19,7 @@ int main()
         }
         while(a!=b)
         {
-            above++;
+            above=above*2;
             a++;
         }
         above++;
